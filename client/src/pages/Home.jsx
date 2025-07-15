@@ -117,11 +117,11 @@ const Home = () => {
                     <div className={`space-y-8 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 text-slate-600 mb-2">
-                                <LucideKey size={20} />
+                                <LucideKey className='animate-bounce-slow' size={20} />
                                 <span className="text-sm font-medium tracking-wide">Learning never exhausts the mind</span>
                             </div>
 
-                            <h1 className="text-4xl hover:scale-105 cursor-pointer transition-all duration-500 lg:text-6xl font-bold text-slate-900 leading-tight">
+                            <h1 className="text-4xl pt-sans-bold hover:scale-105 cursor-pointer transition-all duration-500 lg:text-6xl font-bold text-slate-900 leading-tight">
                                 Hey there! I'm{' '}
                                 <span className="bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent">
                                     {personalInfo.name}
@@ -130,7 +130,7 @@ const Home = () => {
 
                             <div className="h-16 flex items-center">
                                 <div className="text-xl lg:text-2xl font-semibold text-slate-600 transition-all duration-500">
-                                    <span className="border-r-2 border-slate-400 pr-2 animate-pulse">
+                                    <span className="border-r-2 pt-sans-regular-italic border-slate-400 pr-2 animate-pulse">
                                         {personalInfo.occupation[currentOccupation]}
                                     </span>
                                 </div>
@@ -184,8 +184,8 @@ const Home = () => {
                             <div className="absolute -inset-2 bg-gradient-to-r from-slate-300 to-slate-400 rounded-3xl transform -rotate-3 opacity-20"></div>
 
                             {/* Main avatar */}
-                            <div className="relative w-72 h-72 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-3xl flex flex-col items-center justify-center text-white shadow-2xl transform hover:scale-105 transition-all duration-500">
-                                <img src={image} alt="Profile" className="w-full h-full object-cover rounded-3xl" />
+                            <div className="relative w-72 h-72 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 rounded-3xl flex flex-col items-center justify-center text-white shadow-2xl transform hover:scale-105 transition-all duration-500 hover:animate-bounce">
+                                <img src={image} alt="Profile" className="w-full  h-full object-cover rounded-3xl" />
                             </div>
                         </div>
                     </div>

@@ -77,7 +77,7 @@ const Projects = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      <div className="container mx-auto px-6 py-16 lg:py-24">
+      <div className="container mx-auto px-6 py-16 lg:py-12">
         
         {/* Header Section */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -85,16 +85,13 @@ const Projects = () => {
             <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center">
               <Code className="text-white" size={24} />
             </div>
-            <div className="h-px w-16 bg-slate-300"></div>
-            <Coffee className="text-slate-400" size={20} />
           </div>
           
-          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl pt-sans-bold font-bold text-slate-900 mb-4">
             Things I've Built
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Each project tells a story of problem-solving, late-night debugging sessions, 
-            and the occasional "aha!" moment. Here's what keeps me busy.
+            Every project is an opportunity to learn, to figure out problems and challenges, to invent and reinvent.
           </p>
         </div>
 
@@ -144,7 +141,7 @@ const Projects = () => {
                           
                           {hoveredProject === index && (
                             <div className="animate-bounce-slow">
-                              <Star className="text-slate-400" size={18} />
+                              {/* <Star className="text-slate-400" size={18} /> */}
                             </div>
                           )}
                         </div>

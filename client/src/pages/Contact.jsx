@@ -1,28 +1,53 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, Github, Linkedin, Send, MessageCircle, Coffee, Heart, Star, Clock, CheckCircle, User, AtSign, Loader2 } from 'lucide-react';
+import axios from 'axios';
+import { server } from '../components/server';
 
-// Mock personal info for demo
-const personalInfo = {
-    email: "john.doe@example.com",
-    mobile: "+1 (555) 123-4567",
-    github: "https://github.com/johndoe",
-    linkedin: "https://linkedin.com/in/johndoe"
-};
+// // // Mock personal info for demo
+// const personalInfo = {
+//     email: "john.doe@example.com",
+//     mobile: "+1 (555) 123-4567",
+//     github: "https://github.com/johndoe",
+//     linkedin: "https://linkedin.com/in/johndoe"
+// };
 
 const Contact = () => {
     const [contactForm, setContactForm] = useState({ name: '', email: '', message: '' });
     const [formStatus, setFormStatus] = useState('');
     const [isVisible, setIsVisible] = useState(false);
     const [hoveredItem, setHoveredItem] = useState(null);
-    const [isPageLoading, setIsPageLoading] = useState(true);
+    const [isPageLoading, setIsPageLoading] = useState(true)
+    const [Loading, setLoading] = useState(true)
+    const [personalInfo, setPersonalInfo] = useState({
+        email: "john.doe@example.com",
+        mobile: "+1 (555) 123-4567",
+        github: "https://github.com/johndoe",
+        linkedin: "https://linkedin.com/in/johndoe"
+    })
+
+
+    const fetchData = async () => {
+        try {
+            setLoading(true);
+            const response = await axios.get(`${server}me`);
+            console.log("About data received:", response.data[0]);
+              setPersonalInfo(response.data[0]);
+
+        } catch (error) {
+            console.error("Error fetching about data:", error);
+        } finally {
+            setLoading(false);
+        }
+    };
 
     useEffect(() => {
         // Simulate page loading
+        fetchData()
         const timer = setTimeout(() => {
             setIsPageLoading(false);
             setIsVisible(true);
         }, 1500);
-        
+
         return () => clearTimeout(timer);
     }, []);
 
@@ -31,18 +56,18 @@ const Contact = () => {
             alert('Please fill in all fields');
             return;
         }
-        
+
         setFormStatus('sending');
-        
+
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 2000));
-            
+
             // Mock successful response
             console.log('Form submitted:', contactForm);
             setFormStatus('success');
             setContactForm({ name: '', email: '', message: '' });
-            
+
             setTimeout(() => setFormStatus(''), 3000);
         } catch (error) {
             console.error('Error submitting form:', error);
@@ -139,23 +164,21 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-            <div className="container mx-auto px-6 py-16 lg:py-24">
-                
+            <div className="container mx-auto px-6 py-16 lg:py-12">
+
                 {/* Header Section */}
                 <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
                     <div className="flex items-center justify-center gap-3 mb-4">
                         <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center">
                             <MessageCircle className="text-white" size={24} />
                         </div>
-                        <div className="h-px w-16 bg-slate-300"></div>
-                        <Coffee className="text-slate-400" size={20} />
                     </div>
-                    
-                    <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+
+                    <h1 className="text-4xl lg:text-5xl pt-sans-bold font-bold text-slate-900 mb-4">
                         Let's Connect
                     </h1>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-                        Have a project in mind? Want to collaborate? Or just want to say hi? 
+                        Have a project in mind? Want to collaborate? Or just want to say hi?
                         I'd love to hear from you. Choose your preferred way to reach out.
                     </p>
                 </div>
@@ -163,7 +186,7 @@ const Contact = () => {
                 {/* Contact Content */}
                 <div className="max-w-6xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-12">
-                        
+
                         {/* Contact Information */}
                         <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
                             <div className="bg-white rounded-2xl shadow-lg p-8 border border-slate-200">
@@ -194,14 +217,10 @@ const Contact = () => {
                                                             <p className="text-sm text-slate-600">{method.description}</p>
                                                         </div>
                                                     </div>
+
                                                     
-                                                    {hoveredItem === index && (
-                                                        <div className="animate-bounce-slow">
-                                                            <Star className="text-slate-400" size={16} />
-                                                        </div>
-                                                    )}
                                                 </div>
-                                                
+
                                                 <div className="mt-3 ml-14">
                                                     <a
                                                         href={method.link}

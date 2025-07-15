@@ -37,7 +37,7 @@ const NotFound = () => {
                         
                         {/* Error Code with Glitch Effect */}
                         <div className="relative">
-                            <div className="text-8xl lg:text-9xl font-bold text-slate-200 select-none">
+                            <div className="text-8xl pt-sans-bold lg:text-9xl font-bold text-slate-200 select-none">
                                 404
                             </div>
                             <div className="absolute inset-0 text-8xl lg:text-9xl font-bold bg-gradient-to-r from-slate-700 to-slate-900 bg-clip-text text-transparent animate-pulse">

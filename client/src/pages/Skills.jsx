@@ -49,7 +49,7 @@ const Skills = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      <div className="container mx-auto px-6 py-16 lg:py-24">
+      <div className="container mx-auto px-6 py-16 lg:py-12">
 
         {/* Header Section */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -57,16 +57,13 @@ const Skills = () => {
             <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center">
               <Shield className="text-white" size={24} />
             </div>
-            <div className="h-px w-16 bg-slate-300"></div>
-            <Coffee className="text-slate-400" size={20} />
           </div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl pt-sans-bold font-bold text-slate-900 mb-4">
             Skills & Expertise
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            A collection of technologies and methodologies I've mastered through
-            countless projects, learning experiences, and professional growth.
+           Skills don't die;<br/> only people do
           </p>
         </div>
 

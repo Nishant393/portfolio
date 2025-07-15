@@ -11,7 +11,7 @@ const About = () => {
   const [loading, setLoading] = useState(true);
   const [personalInfo, setPersonalInfo] = useState({
     name: "",
-    occupation: [],
+    occupation: '[hello,jdhj]',
     email: "",
     mobile: "",
     github: "",
@@ -76,7 +76,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      <div className="container mx-auto px-6 py-16 lg:py-24">
+      <div className="container mx-auto px-6 py-16 lg:py-12">
         
         {/* Header Section */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
@@ -84,16 +84,13 @@ const About = () => {
             <div className="w-12 h-12 bg-slate-800 rounded-2xl flex items-center justify-center">
               <User className="text-white" size={24} />
             </div>
-            <div className="h-px w-16 bg-slate-300"></div>
-            <Coffee className="text-slate-400" size={20} />
           </div>
 
-          <h1 className="text-4xl lg:text-5xl font-bold text-slate-900 mb-4">
+          <h1 className="text-4xl lg:text-5xl pt-sans-bold font-bold text-slate-900 mb-4">
             About Me
           </h1>
           <p className="text-lg text-slate-600 max-w-2xl mx-auto leading-relaxed">
-            Passionate about creating meaningful digital experiences through code,
-            innovation, and continuous learning.
+            Clean code always looks like it was written by someone who cares.
           </p>
         </div>
 
@@ -217,14 +214,6 @@ const About = () => {
                 </a>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <div className="inline-flex items-center gap-2 text-slate-600 bg-slate-100 px-6 py-3 rounded-full">
-            <Heart size={16} className="text-red-400" />
-            <span>Always coding, always creating...</span>
           </div>
         </div>
       </div>

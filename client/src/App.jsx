@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import {Routes, Route, Link, useLocation, useNavigate } from "react-router-dom"
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom"
 import { pages } from './data/navigationData';
 import { personalInfo } from './data/personalData';
 import Home from './pages/Home';
@@ -15,8 +15,9 @@ import NotFound from './pages/NotFound';
 // Navigation component that uses React Router
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+      const [hoveredItem, setHoveredItem] = useState(null);
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   // Function to get current page ID from pathname
   const getCurrentPageId = () => {
@@ -54,14 +55,15 @@ const Navigation = () => {
     <nav className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-md border-b border-slate-200 z-50">
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          
+
           {/* Logo & Path */}
           <div className="flex items-center space-x-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center text-white font-bold text-sm">
-                {personalInfo.name.split(' ').map(name => name[0]).join('')}
+              <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center text-white font-bold text-sm animate-bounce-slow">
+                
+                {"< / >"}
               </div>
-              <Link to="/" className="text-lg font-bold text-slate-800 hover:text-slate-600 transition-colors">
+              <Link to="/" className="text-lg font-bold text-slate-800 hover:text-slate-600 transition-colors libertinus-mono-regular  ">
                 {personalInfo.name}
               </Link>
             </div>
@@ -78,25 +80,23 @@ const Navigation = () => {
               <Link
                 key={page.id}
                 to={page.path}
-                className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${
-                  currentPageId === page.id
+                className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${currentPageId === page.id
                     ? 'text-white bg-slate-800 shadow-lg'
                     : 'text-slate-600 hover:text-slate-800 hover:bg-slate-100'
-                }`}
+                  }`}
               >
                 <page.icon size={16} />
                 <span className="font-medium">{page.label}</span>
               </Link>
             ))}
-            
+
             {/* Admin Link - Hidden by default, you can show it conditionally */}
             <Link
               to="/a"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${
-                currentPageId === 'admin'
+              className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${currentPageId === 'admin'
                   ? 'text-white bg-slate-800 shadow-lg'
                   : 'text-slate-600 hover:text-slate-800 hover:bg-slate-100'
-              }`}
+                }`}
             >
               <Shield size={16} />
               <span className="font-medium">Admin</span>
@@ -121,11 +121,10 @@ const Navigation = () => {
                   key={page.id}
                   to={page.path}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`flex items-center space-x-3 w-full px-4 py-3 rounded-xl transition-all duration-200 ${
-                    currentPageId === page.id
+                  className={`flex items-center space-x-3 w-full px-4 py-3 rounded-xl transition-all duration-200 ${currentPageId === page.id
                       ? 'text-white bg-slate-800'
                       : 'text-slate-600 hover:text-slate-800 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   <page.icon size={18} />
                   <span className="font-medium">{page.label}</span>
@@ -180,17 +179,17 @@ const App = () => {
                 </div>
                 <p className="text-slate-400">Building digital experiences, one line at a time.</p>
               </div>
-              
+
               <div className="flex items-center space-x-6">
-                <a 
-                  href={personalInfo.github} 
+                <a
+                  href={personalInfo.github}
                   className="text-slate-400 hover:text-white transition-colors transform hover:scale-110"
                   aria-label="GitHub"
                 >
                   <Github size={24} />
                 </a>
-                <a 
-                  href={personalInfo.linkedin} 
+                <a
+                  href={personalInfo.linkedin}
                   className="text-slate-400 hover:text-white transition-colors transform hover:scale-110"
                   aria-label="LinkedIn"
                 >
@@ -198,7 +197,7 @@ const App = () => {
                 </a>
               </div>
             </div>
-            
+
             <div className="border-t border-slate-700 mt-8 pt-6 text-center">
               <p className="text-slate-400 text-sm">
                 © 2025 {personalInfo.name}. Crafted with care and probably too much coffee.
