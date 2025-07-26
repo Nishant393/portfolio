@@ -41,6 +41,6 @@ app.use("/projects", projectsRoute)
 app.use("/skills", skillsRoute)
 app.use("/contacts", contactsRoute)
 
-app.listen(5000, () => {
-    console.log("server is run on port 5000")
+app.listen( process.env.PORT, () => {
+    console.log("server is run on port 5000", process.env.PORT)
 })

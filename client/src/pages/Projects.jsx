@@ -103,7 +103,6 @@ const Projects = () => {
             <EmptyState />
           ) : (
             <>
-              {/* Projects Grid */}
               <div className="grid lg:grid-cols-2 gap-8">
                 {projects.map((project, index) => {
                   const IconComponent = getProjectIcon(project.title);
