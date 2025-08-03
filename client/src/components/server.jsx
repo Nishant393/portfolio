@@ -1,1 +1,1 @@
-export const server = "https://portfolio-ia23dsggg-nishant393s-projects.vercel.app/"
+export const server = "https://portfolio-sage-nine-37.vercel.app/"
