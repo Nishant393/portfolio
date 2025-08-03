@@ -1,1 +1,1 @@
-export const server = "http://localhost:5000/"
+export const server = "https://portfolio-ia23dsggg-nishant393s-projects.vercel.app/"
