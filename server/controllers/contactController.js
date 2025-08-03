@@ -36,7 +36,7 @@ export const submitContacts = async (req, res) => {
     // console.log(req.body)
 
     const q = `
-      INSERT INTO portfolio.contacts 
+      INSERT INTO contacts 
       (name, email, message) 
       VALUES (?, ?, ?)
     `;
@@ -79,7 +79,7 @@ export const submitContacts = async (req, res) => {
 
 export const deleteContacts = async (req, res) => {
   try {
-    const q = "DELETE FROM portfolio.contacts WHERE id = ?";
+    const q = "DELETE FROM contacts WHERE id = ?";
     const ID = req.params.id;
     db.query(q, [ID], (err, data) => {
       if (err) return res.json(err)

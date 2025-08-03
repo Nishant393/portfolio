@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Nishant Pawar",
-  occupation: ["Full Stack Developer", "Open Source Contributor"],
+  occupation: '["Stack Developer", "Open Source Contributor"]',
   email: "nishantpawar393@gmail.com",
   mobile: "+91 9881921001",
   github: "https://github.com/Nishant393",

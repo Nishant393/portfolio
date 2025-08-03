@@ -3,9 +3,9 @@ import { db } from "../config/db.js"
 
 export const getInfo =  async (req,res)=>{
   try {
-    const q = "SELECT * FROM portfolio.personal_info;"
+    const q = "SELECT * FROM personal_info;"
     db.query(q,(err,data)=>{
-      if(err) return res.json("something went wrong")
+      if(err) return res.json(err)
       return res.json(data)
     })
   } catch (error) {
@@ -16,7 +16,7 @@ export const getInfo =  async (req,res)=>{
 export const updateInfo = async (req, res) => {
   try {
     const q = `
-      UPDATE portfolio.personal_info 
+      UPDATE personal_info 
       SET 
         name = ?, 
         email = ?, 

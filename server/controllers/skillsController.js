@@ -3,7 +3,7 @@ import { db } from "../config/db.js"
 
 export const getSkills = async (req, res) => {
   try {
-    const q = "SELECT * FROM portfolio.skills;"
+    const q = "SELECT * FROM skills;"
     db.query(q, (err, data) => {
       if (err) return res.json("something went wrong")
       return res.json(data)
@@ -21,7 +21,7 @@ export const addSkills = async (req, res) => {
     } = req.body;
 
     const q = `
-      INSERT INTO portfolio.skills 
+      INSERT INTO skills 
       (name, description) 
       VALUES (?, ?)
     `;
@@ -47,7 +47,7 @@ export const addSkills = async (req, res) => {
 
 export const deleteSkills = async (req, res) => {
   try {
-    const q = "DELETE FROM portfolio.skills WHERE id = ?";
+    const q = "DELETE FROM skills WHERE id = ?";
     const ID = req.params.id;
     db.query(q, [ID], (err, data) => {
       if (err) return res.json(err)
@@ -60,7 +60,7 @@ export const deleteSkills = async (req, res) => {
 
 export const updateSkills = async (req, res) => {
   try {
-    const q = "UPDATE portfolio.skills SET `name` = ?, `description` = ? WHERE id = ?";
+    const q = "UPDATE skills SET `name` = ?, `description` = ? WHERE id = ?";
     const ID = req.params.id;
     const values = [
       req.body.name,

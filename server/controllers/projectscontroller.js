@@ -3,9 +3,13 @@ import { db } from "../config/db.js"
 
 export const getProjects = async (req, res) => {
   try {
-    const q = "SELECT * FROM portfolio.projects;"
+    const q = "SELECT * FROM projects;"
     db.query(q, (err, data) => {
-      if (err) return res.json("something went wrong")
+      if (err){ 
+        
+        return res.json(err)
+
+      }
       return res.json(data)
     })
   } catch (error) {
@@ -26,7 +30,7 @@ export const addProjects = async (req, res) => {
     } = req.body;
 
     const q = `
-      INSERT INTO portfolio.projects 
+      INSERT INTO projects 
       (title, description, features, techStack, github, website, linkedin) 
       VALUES (?, ?, ?, ?, ?, ?, ?)
     `;
@@ -57,7 +61,7 @@ export const addProjects = async (req, res) => {
 
 export const deleteProject = async (req, res) => {
   try {
-    const q = "DELETE FROM portfolio.projects WHERE id = ?";
+    const q = "DELETE FROM projects WHERE id = ?";
     const ID = req.params.id;
     db.query(q, [ID], (err, data) => {
       if (err) return res.json(err)
@@ -70,7 +74,7 @@ export const deleteProject = async (req, res) => {
 
 export const updateProject = async (req, res) => {
   try {
-    const q = "UPDATE portfolio.projects SET `title` = ?, `description` = ?, `features` = ?, `techStack` = ? , `github` = ? , `website` = ? , `linkedin` = ? WHERE id = ?";
+    const q = "UPDATE projects SET `title` = ?, `description` = ?, `features` = ?, `techStack` = ? , `github` = ? , `website` = ? , `linkedin` = ? WHERE id = ?";
     const ID = req.params.id;
     const values = [
       req.body.title,
