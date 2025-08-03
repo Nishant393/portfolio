@@ -12,7 +12,7 @@ import contactsRoute from "./routes/contactRoute.js";
 
 const app = express();
 
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: process.env.PORT || "http://localhost:3000/" }));
 app.use(express.json());
 
 app.get("/", (req, res) => {
