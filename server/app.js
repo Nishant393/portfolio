@@ -12,7 +12,20 @@ import contactsRoute from "./routes/contactRoute.js";
 
 const app = express();
 
-app.use(cors({ origin: process.env.PORT || "http://localhost:3000/" }));
+const allowedOrigins = [
+  "http://localhost:3000",
+  process.env.CLIENT
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+}));
 app.use(express.json());
 
 app.get("/", (req, res) => {
