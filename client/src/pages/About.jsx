@@ -25,7 +25,6 @@ const About = () => {
     try {
       setLoading(true);
       const response = await axios.get(`${server}me`);
-      console.log("About data received:", response.data[0]);
       setPersonalInfo(response.data[0]);
       
       // If you have a separate skills endpoint, you can fetch it here

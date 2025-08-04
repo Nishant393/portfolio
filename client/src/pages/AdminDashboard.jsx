@@ -331,7 +331,7 @@ const ContactPage = () => {
   const getContacts = async () => {
     try {
       axios.get(`${server}contacts`).then((data) => {
-        console.log(data.data)
+        console.log(data)
         setContacts(data.data)
 
       })

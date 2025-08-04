@@ -32,8 +32,6 @@ const Navigation = () => {
         return 'projects';
       case '/contact':
         return 'contact';
-      case '/a':
-        return 'admin';
       default:
         return 'home';
     }
@@ -45,10 +43,8 @@ const Navigation = () => {
 
   const currentPageId = getCurrentPageId();
 
-  // Add admin page to pages array for navigation
   const allPages = [
-    ...pages,
-    { id: 'admin', label: 'Admin', path: '/a', icon: Shield }
+    ...pages
   ];
 
   return (
@@ -89,18 +85,6 @@ const Navigation = () => {
                 <span className="font-medium">{page.label}</span>
               </Link>
             ))}
-
-            {/* Admin Link - Hidden by default, you can show it conditionally */}
-            <Link
-              to="/a"
-              className={`flex items-center space-x-2 px-4 py-2 rounded-xl transition-all duration-200 ${currentPageId === 'admin'
-                  ? 'text-white bg-slate-800 shadow-lg'
-                  : 'text-slate-600 hover:text-slate-800 hover:bg-slate-100'
-                }`}
-            >
-              <Shield size={16} />
-              <span className="font-medium">Admin</span>
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}

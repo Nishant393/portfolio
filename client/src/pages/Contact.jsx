@@ -30,7 +30,6 @@ const Contact = () => {
         try {
             setLoading(true);
             const response = await axios.get(`${server}me`);
-            console.log("About data received:", response.data[0]);
               setPersonalInfo(response.data[0]);
 
         } catch (error) {
@@ -62,9 +61,6 @@ const Contact = () => {
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 2000));
-
-            // Mock successful response
-            console.log('Form submitted:', contactForm);
             setFormStatus('success');
             setContactForm({ name: '', email: '', message: '' });
 

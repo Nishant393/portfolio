@@ -25,7 +25,6 @@ const Home = () => {
         try {
             setLoading(true);
             const response = await axios.get(`${server}me`);
-            console.log("Data received:", response.data[0]);
             
             const data = response.data[0];
             

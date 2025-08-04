@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
 
 export const getContacts = async (req, res) => {
   try {
-    const q = "SELECT * FROM portfolio.contacts;"
+    const q = "SELECT * FROM contacts;"
     db.query(q, (err, data) => {
       if (err) return res.json("something went wrong")
       return res.json(data)
