@@ -13,7 +13,7 @@ import contactsRoute from "./routes/contactRoute.js";
 const app = express();
 
 const allowedOrigins = [
-  "https://portfolio-client-five-nu.vercel.app/",
+  "https://portfolio-client-five-nu.vercel.app",
   "http://localhost:3000"
 ];
 
