@@ -2,11 +2,19 @@ import React, { useState, useEffect, use } from 'react';
 import { Plus, Edit2, Trash2, Save, X, User, MessageSquare, Briefcase, Mail, Phone, Github, Linkedin, Globe, ExternalLink, Code } from 'lucide-react';
 import { server } from '../components/server';
 import axios from "axios"
+import AdminLogin from './AdminLogin';
 
 
 export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('skills');
   const [isLoading, setIsLoading] = useState(false);
+   const [user, setUser] = useState(null);
+
+  if (!user) {
+    return <AdminLogin onLogin={(user) => setUser(user)} />;
+  }
+
+ 
 
   const tabs = [
     { id: 'contacts', label: 'Contacts', icon: MessageSquare, color: 'blue' },

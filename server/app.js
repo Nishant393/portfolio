@@ -9,6 +9,8 @@ import personalInfoRoute from "./routes/personalInfoRoute.js";
 import projectsRoute from "./routes/projectsRoute.js";
 import skillsRoute from "./routes/skillsRoute.js";
 import contactsRoute from "./routes/contactRoute.js";
+import loginRoute from "./routes/loginRoute.js";
+
 
 const app = express();
 
@@ -44,6 +46,7 @@ app.use("/me", personalInfoRoute);
 app.use("/projects", projectsRoute);
 app.use("/skills", skillsRoute);
 app.use("/contacts", contactsRoute);
+app.use("/login", loginRoute);
 
 app.listen(process.env.PORT, () => {
   console.log("server is running on port", process.env.PORT);
