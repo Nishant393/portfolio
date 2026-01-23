@@ -191,11 +191,50 @@ const About = () => {
               ))}
             </div>
           </div>
+{/* GitHub Contributions Section (iframe) */}
+<div
+  className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+  style={{ animationDelay: '700ms' }}
+>
+  <div className="flex items-center gap-4 mb-8">
+    <div className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center">
+      <Github className="text-white" size={20} />
+    </div>
+    <h2 className="text-3xl font-bold text-slate-900">
+      GitHub Activity
+    </h2>
+    <div className="flex-1 h-px bg-slate-200"></div>
+  </div>
+
+  <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-4 overflow-hidden">
+    <iframe
+      // src="https://github.com/users/Nishant393/contributions"
+      src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
+      title="GitHub Contributions"
+      width="100%"
+      height="220"
+      frameBorder="0"
+      className="rounded-xl"
+    />
+    <iframe
+      // src="https://github.com/users/Nishant393/contributions"
+      src='https://github-readme-stats.vercel.app/api?username=nishantpawar&show_icons=true&theme=tokyonight'
+      // src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
+      title="GitHub Contributions"
+      width="100%"
+      height="220"
+      frameBorder="0"
+      className="rounded-xl"
+    />
+  </div>
+</div>
 
           {/* Connect Section */}
           <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '800ms' }}>
             <div className="text-center">
+            
               <h2 className="text-3xl font-bold text-slate-900 mb-8">Let's Connect</h2>
+              
               <div className="flex justify-center gap-6">
                 <a 
                   href={personalInfo.github}
