@@ -219,7 +219,7 @@ const About = () => {
               />
               <iframe
                 // src="https://github.com/users/Nishant393/contributions"
-                src='https://github-readme-stats.vercel.app/api?username=nishantpawar&show_icons=true&theme=tokyonight'
+                src='https://github-readme-stats.vercel.app/api?username=Nishant393&show_icons=true&theme=tokyonight'
                 // src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
                 title="GitHub Contributions"
                 width="100%"
