@@ -15,7 +15,7 @@ import loginRoute from "./routes/loginRoute.js";
 const app = express();
 
 const allowedOrigins = [
-  "https://portfolio-client-five-nu.vercel.app",
+  "https://portfolio-q9dx.vercel.app",
   "http://localhost:3000"
 ];
 
