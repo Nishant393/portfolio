@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Code, Zap, Shield, Star, Clock, Coffee, Heart, Award, Target, TrendingUp, Loader2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Shield, Star,  Heart, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { server } from '../components/server';
 
@@ -8,7 +8,7 @@ const Skills = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [loading, setLoading] = useState(true);
   const [skills, setSkills] = useState([]);
-
+  console.log(hoveredSkill)
   useEffect(() => {
     setIsVisible(true);
     setLoading(true);

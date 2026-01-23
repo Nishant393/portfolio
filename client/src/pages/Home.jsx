@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, Github, Linkedin, LucideKey, LucideMove3D, StarHalf } from 'lucide-react';
-import { Menu, X, User, Code, Briefcase, FileText, Mail, Coffee } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { ArrowRight, Github, Linkedin, LucideKey } from 'lucide-react';
 import image from "../../src/components/download.png"
 import axios from 'axios';
 import { server } from '../components/server';

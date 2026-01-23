@@ -1,7 +1,7 @@
 import { Github, ExternalLink } from 'lucide-react';
 // import { projects } from '../data/projectsData';
-import React, { useState, useEffect } from 'react';
-import { Calendar, Tag, Code, Zap, Users, Shield, Star, Clock, Coffee, Heart, Loader2, FolderOpen } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { Code, Zap, Users, Shield, Clock, Coffee, Heart, Loader2, FolderOpen } from 'lucide-react';
 import { server } from '../components/server';
 import axios from 'axios';
 
@@ -32,12 +32,6 @@ const Projects = () => {
     return Code;
   };
 
-  const formatDate = (dateStr) => {
-    return new Date(dateStr).toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long' 
-    });
-  };
 
   // Loader Component
   const LoaderComponent = () => (

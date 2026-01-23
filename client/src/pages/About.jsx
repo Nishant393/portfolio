@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Github, Linkedin, User, Target, Heart, Coffee, Shield, Star, Code, Mail, Phone } from 'lucide-react';
+import  { useState, useEffect } from 'react';
+import { Github, Linkedin, User, Target, Code, Mail, Phone } from 'lucide-react';
 import { personalInfo as fallbackPersonalInfo } from '../data/personalData';
 import { skills as fallbackSkills } from '../data/skillsData';
 import axios from 'axios';
@@ -20,13 +20,14 @@ const About = () => {
     goal: ""
   });
   const [skills, setSkills] = useState([]);
+  console.log(hoveredTech)
 
   const fetchData = async () => {
     try {
       setLoading(true);
       const response = await axios.get(`${server}me`);
       setPersonalInfo(response.data[0]);
-      
+
       // If you have a separate skills endpoint, you can fetch it here
       // For now, using fallback skills
       setSkills(fallbackSkills);
@@ -55,13 +56,13 @@ const About = () => {
             <div className="w-16 h-16 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin mx-auto"></div>
             <div className="absolute inset-0 w-16 h-16 border-4 border-transparent border-r-slate-600 rounded-full animate-spin mx-auto" style={{ animationDirection: 'reverse', animationDuration: '1.5s' }}></div>
           </div>
-          
+
           {/* Loading Messages */}
           <div className="space-y-2">
             <h2 className="text-2xl font-bold text-slate-800">Loading About Me</h2>
             <p className="text-slate-600 animate-pulse">Getting to know me better...</p>
           </div>
-          
+
           {/* Loading Dots */}
           <div className="flex justify-center space-x-2 mt-6">
             <div className="w-2 h-2 bg-slate-400 rounded-full animate-bounce"></div>
@@ -76,7 +77,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       <div className="container mx-auto px-6 py-16 lg:py-12">
-        
+
         {/* Header Section */}
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in' : 'opacity-0'}`}>
           <div className="flex items-center justify-center gap-3 mb-4">
@@ -95,7 +96,7 @@ const About = () => {
 
         {/* Main Content */}
         <div className="max-w-6xl mx-auto space-y-12">
-          
+
           {/* Who I Am Section */}
           <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '200ms' }}>
             <div className="flex items-center gap-4 mb-8">
@@ -171,7 +172,7 @@ const About = () => {
                   onMouseLeave={() => setHoveredTech(null)}
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-slate-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  
+
                   <div className="relative">
                     <div className="flex items-center gap-3 mb-3">
                       <div className="w-8 h-8 bg-slate-100 rounded-lg flex items-center justify-center text-slate-600">
@@ -184,66 +185,66 @@ const About = () => {
                     <p className="text-slate-600 text-sm leading-relaxed">
                       {tech.description}
                     </p>
-                    
+
                     <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-slate-300 to-slate-400 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
-{/* GitHub Contributions Section (iframe) */}
-<div
-  className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
-  style={{ animationDelay: '700ms' }}
->
-  <div className="flex items-center gap-4 mb-8">
-    <div className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center">
-      <Github className="text-white" size={20} />
-    </div>
-    <h2 className="text-3xl font-bold text-slate-900">
-      GitHub Activity
-    </h2>
-    <div className="flex-1 h-px bg-slate-200"></div>
-  </div>
+          {/* GitHub Contributions Section (iframe) */}
+          <div
+            className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`}
+            style={{ animationDelay: '700ms' }}
+          >
+            <div className="flex items-center gap-4 mb-8">
+              <div className="w-10 h-10 bg-slate-800 rounded-xl flex items-center justify-center">
+                <Github className="text-white" size={20} />
+              </div>
+              <h2 className="text-3xl font-bold text-slate-900">
+                GitHub Activity
+              </h2>
+              <div className="flex-1 h-px bg-slate-200"></div>
+            </div>
 
-  <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-4 overflow-hidden">
-    <iframe
-      // src="https://github.com/users/Nishant393/contributions"
-      src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
-      title="GitHub Contributions"
-      width="100%"
-      height="220"
-      frameBorder="0"
-      className="rounded-xl"
-    />
-    <iframe
-      // src="https://github.com/users/Nishant393/contributions"
-      src='https://github-readme-stats.vercel.app/api?username=nishantpawar&show_icons=true&theme=tokyonight'
-      // src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
-      title="GitHub Contributions"
-      width="100%"
-      height="220"
-      frameBorder="0"
-      className="rounded-xl"
-    />
-  </div>
-</div>
+            <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-4 overflow-hidden">
+              <iframe
+                // src="https://github.com/users/Nishant393/contributions"
+                src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
+                title="GitHub Contributions"
+                width="100%"
+                height="220"
+                frameBorder="0"
+                className="rounded-xl"
+              />
+              <iframe
+                // src="https://github.com/users/Nishant393/contributions"
+                src='https://github-readme-stats.vercel.app/api?username=nishantpawar&show_icons=true&theme=tokyonight'
+                // src='https://github-readme-streak-stats.herokuapp.com/?user=Nishant393&theme=tokyonight'
+                title="GitHub Contributions"
+                width="100%"
+                height="220"
+                frameBorder="0"
+                className="rounded-xl"
+              />
+            </div>
+          </div>
 
           {/* Connect Section */}
           <div className={`${isVisible ? 'animate-fade-in' : 'opacity-0'}`} style={{ animationDelay: '800ms' }}>
             <div className="text-center">
-            
+
               <h2 className="text-3xl font-bold text-slate-900 mb-8">Let's Connect</h2>
-              
+
               <div className="flex justify-center gap-6">
-                <a 
+                <a
                   href={personalInfo.github}
                   className="group flex items-center gap-3 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 px-8 py-4 border border-slate-200"
                 >
                   <Github size={24} className="text-slate-600 group-hover:text-slate-900 transition-colors" />
                   <span className="text-slate-600 group-hover:text-slate-900 transition-colors font-medium">GitHub</span>
                 </a>
-                <a 
+                <a
                   href={personalInfo.linkedin}
                   className="group flex items-center gap-3 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 px-8 py-4 border border-slate-200"
                 >

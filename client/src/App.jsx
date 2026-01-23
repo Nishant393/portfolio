@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom"
+import { Routes, Route, Link, useLocation } from "react-router-dom"
 import { pages } from './data/navigationData';
 import { personalInfo } from './data/personalData';
 import Home from './pages/Home';
@@ -9,13 +9,12 @@ import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import AdminDashboard from './pages/AdminDashboard'
-import { Menu, X, User, Code, Briefcase, FileText, Mail, Github, Linkedin, ArrowRight, Coffee, Shield } from 'lucide-react';
+import { Menu, X,Github, Linkedin } from 'lucide-react';
 import NotFound from './pages/NotFound';
 
 // Navigation component that uses React Router
 const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-      const [hoveredItem, setHoveredItem] = useState(null);
   const location = useLocation();
   // const navigate = useNavigate();
 
@@ -125,7 +124,7 @@ const Navigation = () => {
 // Main App component
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
-
+  console.log(isLoading)
   useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 2000);
     return () => clearTimeout(timer);

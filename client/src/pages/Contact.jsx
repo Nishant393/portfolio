@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Mail, Phone, Github, Linkedin, Send, MessageCircle, Coffee, Heart, Star, Clock, CheckCircle, User, AtSign, Loader2 } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Mail, Phone, Github, Linkedin, Send, MessageCircle,  Heart,  Clock, CheckCircle, User, AtSign, Loader2 } from 'lucide-react';
 import axios from 'axios';
 import { server } from '../components/server';
 
@@ -25,7 +25,7 @@ const Contact = () => {
         linkedin: "https://linkedin.com/in/johndoe"
     })
 
-
+    console.log(Loading,hoveredItem)
     const fetchData = async () => {
         try {
             setLoading(true);

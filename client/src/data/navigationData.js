@@ -1,4 +1,4 @@
-import { Home, User, Code, Briefcase, BookOpen, Mail } from 'lucide-react';
+import { Home, User, Code, Briefcase, Mail } from 'lucide-react';
 
 export const pages = [
   { id: 'home', label: 'Home', icon: Home, path: '/' },
