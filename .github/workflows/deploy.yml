@@ -1,0 +1,31 @@
+name: Deploy Frontend
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/portfolio
+
+            git pull origin main
+
+            docker build -t portfolio-frontend ./client
+
+            docker rm -f portfolio-frontend || true
+
+            docker run -d \
+              --name portfolio-frontend \
+              -p 3000:3000 \
+              portfolio-frontend
