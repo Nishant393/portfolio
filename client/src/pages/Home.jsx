@@ -116,7 +116,7 @@ const Home = () => {
                         <div className="space-y-4">
                             <div className="flex items-center gap-3 text-slate-600 mb-2">
                                 <LucideKey className='animate-bounce-slow' size={20} />
-                                <span className="text-sm font-medium tracking-wide">Learning never ts the mind</span>
+                                <span className="text-sm font-medium tracking-wide">Learning never exaust the mind</span>
                             </div>
 
                             <h1 className="text-4xl pt-sans-bold hover:scale-105 cursor-pointer transition-all duration-500 lg:text-6xl font-bold text-slate-900 leading-tight">
